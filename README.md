@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+ 
+# 🪪 WalkID — Digital Identity Wallet
 
-## Getting Started
+WalkID is a secure web-based document wallet that allows users to store, manage, and share their digital personal identity (DPI) data — including driver’s licenses, insurance details, and medical information — all under their control.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- 🔐 Secure login & personal dashboard  
+- 🗂️ Upload and view personal identity documents  
+- 📤 Set share permissions (e.g. for police, airport, hospital)  
+- 🕵️ View access logs for transparency  
+- 📸 Share via QR code or license plate  
+- ⚡ Built for privacy-first digital identity  
+
+## 📁 Project Structure
+
+```
+walkid/
+├── app/
+│   ├── dashboard/
+│   ├── documents/
+│   ├── share-settings/
+│   ├── access-logs/
+│   └── viewer/[id]/
+│
+├── components/
+│   ├── Sidebar.jsx
+│   ├── TopNavbar.jsx
+│   ├── QRCodeDisplay.jsx
+│   ├── DocumentCard.jsx
+│   ├── AccessLogTable.jsx
+│   └── ShareToggle.jsx
+│
+├── lib/
+│   └── dummyData.js
+└── public/
+    └── logo-transparent.png
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Frontend**: Next.js (App Router)  
+- **Styling**: Tailwind CSS, Shadcn/UI  
+- **Icons**: React Icons  
+- **QR Code Gen**: qrcode.react (planned)  
+- **Backend**: (Planned) — Supabase, Laravel, or Node.js  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📦 Getting Started
 
-## Learn More
+```bash
+pnpm install
+pnpm dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Visit `http://localhost:3000` to view the app.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+> Note: This is a frontend-only prototype using dummy data.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🧱 Future Goals
 
-## Deploy on Vercel
+- Supabase Auth  
+- Secure file uploads  
+- Government API verification  
+- Emergency override access  
+- Mobile-ready UI  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📄 License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT — free to use, build, and improve.
+
+---
+
+Built by **Theodore Bennett** 🇯🇲 — theodorebennett3@gmail.com
+```

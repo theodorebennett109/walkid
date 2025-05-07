@@ -1,10 +1,11 @@
 "use client";
 
-import React, { JSX } from "react";
+import React, { JSX, useState } from "react";
 import CustomCard from "@/components/ui/card";
 import Badge from "@/components/ui/badge";
 import Link from "next/link";
 import { FaIdCard, FaShieldAlt, FaFileMedical, FaEye, FaMoneyCheckAlt, FaBaby, FaCertificate, FaUniversity, FaBriefcase } from "react-icons/fa";
+import DocumentViewerModal from "@/components/DocumentViewerModal";
 
 type Document = {
   id: number;
@@ -92,7 +93,9 @@ const documents: Document[] = [
   ];
 
 export default function DocumentsPage() {
+    const [openDoc, setOpenDoc] = useState<Document | null>(null);
   return (
+    <>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {documents.map((doc) => (
         <CustomCard key={doc.id}>
@@ -109,16 +112,32 @@ export default function DocumentsPage() {
             />
           </div>
           <p className="text-sm text-gray-500 mb-3">Expires on: {doc.expires}</p>
-          <a
-            href={doc.fileUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-blue-500 hover:underline text-sm"
-          >
-            <FaEye /> View Document
-          </a>
+          <div className="flex gap-3">
+              <button
+                onClick={() => setOpenDoc(doc)}
+                className="inline-flex items-center gap-1 text-blue-500 hover:underline text-sm"
+              >
+                <FaEye /> Preview
+              </button>
+              <a
+                href={doc.fileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-blue-500 hover:underline text-sm"
+              >
+                Download
+              </a>
+            </div>
         </CustomCard>
       ))}
     </div>
+
+     {/* Modal Viewer */}
+     <DocumentViewerModal
+     isOpen={!!openDoc}
+     onClose={() => setOpenDoc(null)}
+     fileUrl={openDoc?.fileUrl || ""}
+     fileName={openDoc?.type || ""}
+   /></>
   );
 }

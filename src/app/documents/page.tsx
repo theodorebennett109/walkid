@@ -25,7 +25,7 @@ const documents: Document[] = [
       icon: <FaIdCard className="text-blue-500 text-xl" />,
       status: "verified",
       expires: "2026-08-31",
-      fileUrl: "/dummy/license.pdf",
+      fileUrl: "/dummy/old_res.pdf",
     },
     {
       id: 2,
